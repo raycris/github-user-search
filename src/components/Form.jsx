@@ -1,9 +1,18 @@
-import React from 'react'
+import React from "react";
 
-const Form = () => {
+const Form = ({ onSubmit, onChange, value }) => {
   return (
-    <div>Form</div>
-  )
-}
+    <form onSubmit={onSubmit}>
+      <input
+        id="search"
+        type="text"
+        placeholder="Enter username or email"
+        onChange={onChange}
+        value={value}
+      />
+      <button type="submit">Search</button>
+    </form>
+  );
+};
 
-export default Form
+export default Form;

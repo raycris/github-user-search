@@ -8,11 +8,11 @@ const API_URL = "https://api.github.com";
 
 async function fetchResults(query) {
   try {
-    const response = await fetch(`${API_URL}/search/users?q=${query}`)
-    const json = await response.json()
+    const response = await fetch(`${API_URL}/search/users?q=${query}`);
+    const json = await response.json();
     return json.items || [];
   } catch (e) {
-    throw new Error(e)
+    throw new Error(e);
   }
 }
 
@@ -20,10 +20,20 @@ function App() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
 
+  function onSearchChange(event) {
+    setQuery(event.target.value);
+  }
+
+  async function onSearchSubmit(event) {
+    event.preventDefault();
+    const results = await fetchResults(query);
+    setResults(results);
+  }
+
   return (
     <div>
       <h2>Search GitHub User</h2>
-      <Form />
+      <Form onChange={onSearchChange} onSubmit={onSearchSubmit} value={query} />
       <h3>Results</h3>
       <div id="results">
         <div>
