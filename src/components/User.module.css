@@ -2,7 +2,7 @@
   height: 120px;
   margin: 10px;
   padding: 10px;
-  border: 1px solid black;
+  border: 1px solid #5264ae;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
@@ -13,6 +13,10 @@
 .icon {
   width: 90px;
   height: 90px;
+}
+
+a{
+  cursor: pointer;
 }
 
 @media (min-width: 768px) {
