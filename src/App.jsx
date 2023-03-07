@@ -31,15 +31,26 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="container">
       <h2>Search GitHub User</h2>
-      <Form onChange={onSearchChange} onSubmit={onSearchSubmit} value={query} />
-      <h3>Results</h3>
-      <div id="results">
-        <div>
-          {results.map((user) => (
-            <User />
-          ))}
+      <div className="infoContainer">
+        <Form
+          onChange={onSearchChange}
+          onSubmit={onSearchSubmit}
+          value={query}
+        />
+        <h3>Results</h3>
+        <div id="results">
+          <div>
+            {results.map((user) => (
+              <User
+                key={user.login}
+                avatar={user.avatar_url}
+                url={user.html_url}
+                username={user.login}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>
